@@ -6,6 +6,8 @@ import (
 	"github.com/mitsu3s/clean-architecture-api/entity"
 )
 
+// 図の赤色
+
 type UserInputPort interface {
 	GetUserByID(ctx context.Context, userID string)
 }

@@ -15,7 +15,10 @@ import (
 	"github.com/mitsu3s/clean-architecture-api/usecase/interactor"
 )
 
-// Serve はserverを起動させます．
+// driver.goではDBのconnectionを生成し，routingの設定．
+// controller.goで定義されているcontroller.Userを作成し，http.HandleFunc()にcontroller.User.GetUserByIDを渡している.
+
+// Serve はserverを起動させる．
 func Serve(addr string) {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"), os.Getenv("DB_PORT"), os.Getenv("DATABASE"))
 	conn, err := sql.Open("mysql", dsn)
@@ -23,12 +26,15 @@ func Serve(addr string) {
 		log.Println(err)
 		return
 	}
+
+	// Controller（controllerのとこ）の定義から作成
 	user := controller.User{
 		OutputFactory: presenter.NewUserOutputPort,
 		InputFactory:  interactor.NewUserInputPort,
 		RepoFactory:   gateway.NewUserRepository,
 		Conn:          conn,
 	}
+
 	http.HandleFunc("/user/", user.GetUserByID)
 	err = http.ListenAndServe(addr, nil)
 	if err != nil {

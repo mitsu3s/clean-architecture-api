@@ -6,6 +6,8 @@ import (
 	"github.com/mitsu3s/clean-architecture-api/usecase/port"
 )
 
+// 図の赤色
+
 type User struct {
 	OutputPort port.UserOutputPort
 	UserRepo   port.UserRepository

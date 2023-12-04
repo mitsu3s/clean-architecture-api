@@ -1,3 +1,12 @@
+/*
+- controller パッケージは，入力に対するアダプターです．
+
+- ここでは，インプットポートとアウトプットポートを組み立てて，インプットポートを実行します．
+- ユースケースレイヤからの戻り値を受け取って出力する必要はなく，純粋に http を受け取り，ユースケースを実行します．
+
+- 図の緑色に該当.
+*/
+
 package controller
 
 import (
@@ -7,8 +16,6 @@ import (
 
 	"github.com/mitsu3s/clean-architecture-api/usecase/port"
 )
-
-// 図の緑色
 
 type User struct {
 	OutputFactory func(w http.ResponseWriter) port.UserOutputPort

@@ -1,3 +1,9 @@
+/*
+- presenter パッケージは，出力に対するアダプターです．
+
+- ここでは，アウトプットポートを実装します(interfaceを満たすようにmethodを追加するということ)
+*/
+
 package presenter
 
 import (

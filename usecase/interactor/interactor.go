@@ -1,3 +1,10 @@
+/*
+- interactor パッケージは，インプットポートとアウトプットポートを繋げる責務を持ちます．
+- interactorはアウトプットポートに依存し(importするということ)，インプットポートを実装します(interfaceを満たすようにmethodを追加するということ)．
+
+- 図の赤色に該当．
+*/
+
 package interactor
 
 import (
@@ -5,8 +12,6 @@ import (
 
 	"github.com/mitsu3s/clean-architecture-api/usecase/port"
 )
-
-// 図の赤色
 
 type User struct {
 	OutputPort port.UserOutputPort

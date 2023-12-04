@@ -1,3 +1,7 @@
+/*
+- driver パッケージは，技術的な実装を持ちます．
+*/
+
 package driver
 
 import (

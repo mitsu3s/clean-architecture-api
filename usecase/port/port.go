@@ -1,3 +1,9 @@
+/*
+- port パッケージは，出力や入力などのポート(interface)を提供します．
+
+- 図の赤色に該当．
+*/
+
 package port
 
 import (
@@ -5,8 +11,6 @@ import (
 
 	"github.com/mitsu3s/clean-architecture-api/entity"
 )
-
-// 図の赤色
 
 type UserInputPort interface {
 	GetUserByID(ctx context.Context, userID string)

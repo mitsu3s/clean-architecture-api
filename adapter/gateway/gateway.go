@@ -1,3 +1,7 @@
+/*
+- gateway パッケージは，DB操作に対するアダプターです．
+*/
+
 package gateway
 
 import (
